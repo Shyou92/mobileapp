@@ -1,1 +1,16 @@
-<p>main works!</p>
+<section>
+  <mat-grid-list cols="3" class="list">
+    <mat-grid-tile
+      *ngFor="let card of cards"
+      [colspan]="card.cols"
+      [rowspan]="card.rows || card.mobrows"
+    >
+      <a class="link" routerLink="/card/{{ card.id }}">
+        <mat-card class="card">
+          <img mat-card-image class="image" src="{{ card.img }}" alt="logo" />
+          <mat-icon *ngIf="!card.img">phone</mat-icon>
+        </mat-card>
+      </a>
+    </mat-grid-tile>
+  </mat-grid-list>
+</section>

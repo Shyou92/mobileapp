@@ -1,15 +1,12 @@
 import { Component, OnInit } from '@angular/core';
+import { Card } from 'app/typings';
+import { cards } from '../../mockData';
 
 @Component({
   selector: 'app-main',
   templateUrl: './main.component.html',
-  styleUrls: ['./main.component.scss']
+  styleUrls: ['./main.component.scss'],
 })
-export class MainComponent implements OnInit {
-
-  constructor() { }
-
-  ngOnInit(): void {
-  }
-
+export class MainComponent {
+  cards: Card[] = cards;
 }
