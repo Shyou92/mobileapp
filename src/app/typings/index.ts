@@ -3,7 +3,15 @@ export type Card = {
   id: number;
   name: string;
   codes: number[];
-  cols: number;
-  rows: number;
-  mobrows?: number;
+};
+
+export type FormData = {
+  phoneNumber: number;
+  amountOfMoney: number;
+};
+
+export type MockFillType = {
+  status: number;
+  success: boolean;
+  data: { sent: FormData; message: string };
 };

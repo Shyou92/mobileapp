@@ -1,1 +1,27 @@
-<p>operator works!</p>
+<section>
+  <img src="{{ card.img }}" alt="logo" />
+  <form action="" [formGroup]="checkoutForm">
+    <section>
+      <label for="mobile">Mobile</label>
+      <input type="tel" name="mobile" id="" formControlName="phoneNumber" />
+    </section>
+    <section>
+      <label for="amount">Amount of money</label>
+      <input
+        type="number"
+        name="amount"
+        id=""
+        formControlName="amountOfMoney"
+      />
+    </section>
+    <button
+      type="submit"
+      (click)="submitForm(); (false)"
+      class="fill-btn"
+      mat-raised-button
+      color="primary"
+    >
+      Fill
+    </button>
+  </form>
+</section>
