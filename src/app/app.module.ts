@@ -12,6 +12,8 @@ import { MatGridListModule } from '@angular/material/grid-list';
 import { MatCardModule } from '@angular/material/card';
 import { MatIconModule } from '@angular/material/icon';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { MatInputModule } from '@angular/material/input';
+import { MatButtonModule } from '@angular/material/button';
 
 import { MainComponent } from './components/main/main.component';
 import { OperatorComponent } from './components/operator/operator.component';
@@ -37,7 +39,9 @@ export const routes: Routes = [
     MatGridListModule,
     MatCardModule,
     MatIconModule,
+    MatButtonModule,
     MatSnackBarModule,
+    MatInputModule,
     FormsModule,
     ReactiveFormsModule,
     RouterModule.forRoot(routes),

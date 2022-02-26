@@ -28,6 +28,9 @@ export class OperatorComponent {
     amountOfMoney: '',
   });
 
+  public isValid: Boolean;
+  public value = 'Clear me';
+
   constructor(
     private route: ActivatedRoute,
     private formBuilder: FormBuilder,
@@ -38,6 +41,7 @@ export class OperatorComponent {
     this.cards = cards;
     const id = Number(this.route.snapshot.paramMap.get('id'));
     this.card = this.getSingleCardForm(id);
+    this.isValid = false;
   }
 
   getSingleCardForm(id: number) {
@@ -48,7 +52,7 @@ export class OperatorComponent {
   submitForm() {
     const data = this.checkoutForm.value;
     this.services
-      .sendFormData(data, this.card)
+      .sendFormData(data, this.card, this.isValid)
       .then((res) => {
         if (res.status === 200) {
           this.snackBar.openFromComponent(SnackbarComponent, {

@@ -5,25 +5,24 @@ import { Card, FormData, MockFillType } from 'app/typings';
   providedIn: 'root',
 })
 export class Services {
-  private isValid: Boolean;
+  constructor() {}
 
-  constructor() {
-    this.isValid = false;
-  }
-
-  public sendFormData(data: FormData, card: Card): Promise<MockFillType> {
+  public sendFormData(
+    data: FormData,
+    card: Card,
+    isValid: Boolean
+  ): Promise<MockFillType> {
     return new Promise((resolve, reject) => {
       setTimeout(() => {
         if (this.phoneValidate(data, card) && this.amountValidate(data)) {
-          this.isValid = true;
+          isValid = true;
           resolve({
             status: 200,
             success: true,
             data: { sent: data, message: 'Payment is successful' },
           });
         } else {
-          console.log(this.amountValidate(data));
-          this.isValid = false;
+          isValid = false;
           reject({
             status: 500,
             success: false,

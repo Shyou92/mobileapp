@@ -1,25 +1,35 @@
-<section>
-  <img src="{{ card.img }}" alt="logo" />
-  <form action="" [formGroup]="checkoutForm">
-    <section>
-      <label for="mobile">Mobile</label>
-      <input type="tel" name="mobile" id="" formControlName="phoneNumber" />
+<section class="formSection">
+  <img src="{{ card.img }}" alt="logo" class="formSection__logo" />
+  <form action="" [formGroup]="checkoutForm" class="form">
+    <section class="form__item">
+      <mat-form-field appearance="fill" class="form__input">
+        <mat-label for="mobile">Mobile</mat-label>
+        <input
+          type="tel"
+          name="mobile"
+          formControlName="phoneNumber"
+          matInput
+          placeholder="+1-555-555-1234"
+        />
+        <mat-icon matSuffix>mode_edit</mat-icon>
+      </mat-form-field>
     </section>
-    <section>
-      <label for="amount">Amount of money</label>
-      <input
-        type="number"
-        name="amount"
-        id=""
-        formControlName="amountOfMoney"
-      />
+    <section class="form__item">
+      <mat-form-field appearance="fill" class="form__input">
+        <mat-label for="amount">Amount of money</mat-label>
+        <input
+          type="number"
+          name="amount"
+          matInput
+          formControlName="amountOfMoney"
+        />
+      </mat-form-field>
     </section>
     <button
-      type="submit"
-      (click)="submitForm(); (false)"
-      class="fill-btn"
       mat-raised-button
       color="primary"
+      type="submit"
+      (click)="submitForm(); (false)"
     >
       Fill
     </button>

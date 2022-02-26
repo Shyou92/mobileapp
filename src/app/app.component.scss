@@ -1,0 +1,10 @@
+.container {
+  display: flex;
+  align-items: center;
+}
+
+.backArrow {
+  &_hidden {
+    display: none;
+  }
+}
