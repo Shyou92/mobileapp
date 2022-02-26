@@ -14,7 +14,7 @@ export class Services {
   public sendFormData(data: FormData, card: Card): Promise<MockFillType> {
     return new Promise((resolve, reject) => {
       setTimeout(() => {
-        if (this.formItemValidate(data, card, this.isValid)) {
+        if (this.phoneValidate(data, card) && this.amountValidate(data)) {
           this.isValid = true;
           resolve({
             status: 200,
@@ -22,6 +22,7 @@ export class Services {
             data: { sent: data, message: 'Payment is successful' },
           });
         } else {
+          console.log(this.amountValidate(data));
           this.isValid = false;
           reject({
             status: 500,
@@ -33,7 +34,7 @@ export class Services {
     });
   }
 
-  private formItemValidate(data: any, card: Card, isValid: Boolean) {
+  private phoneValidate(data: any, card: Card) {
     const { codes } = card;
 
     const { phoneNumber } = data;
@@ -45,5 +46,13 @@ export class Services {
         return false;
       }
     });
+  }
+
+  private amountValidate(data: any) {
+    const { amountOfMoney } = data;
+    if (amountOfMoney >= 1 && amountOfMoney <= 1000) {
+      return true;
+    }
+    return false;
   }
 }
