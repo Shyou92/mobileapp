@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router, ActivatedRoute } from '@angular/router';
+import { FormControl, Validators } from '@angular/forms';
 import { Services } from 'app/services';
 import { Card } from 'app/typings';
 import { cards } from '../../mockData';
@@ -28,8 +29,9 @@ export class OperatorComponent {
     amountOfMoney: '',
   });
 
+  phoneNumber = new FormControl('', [Validators.required]);
+
   public isValid: Boolean;
-  public value = 'Clear me';
 
   constructor(
     private route: ActivatedRoute,
@@ -44,9 +46,16 @@ export class OperatorComponent {
     this.isValid = false;
   }
 
-  getSingleCardForm(id: number) {
+  private getSingleCardForm(id: number) {
     const card = this.cards.filter((item) => item.id === id);
     return card[0];
+  }
+
+  getErrorMessage() {
+    if (this.phoneNumber.hasError('required')) {
+      return 'You must enter a value';
+    }
+    return;
   }
 
   submitForm() {

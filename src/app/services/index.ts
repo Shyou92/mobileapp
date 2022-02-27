@@ -33,7 +33,7 @@ export class Services {
     });
   }
 
-  private phoneValidate(data: any, card: Card) {
+  public phoneValidate(data: any, card: Card) {
     const { codes } = card;
 
     const { phoneNumber } = data;
@@ -47,7 +47,7 @@ export class Services {
     });
   }
 
-  private amountValidate(data: any) {
+  public amountValidate(data: any) {
     const { amountOfMoney } = data;
     if (amountOfMoney >= 1 && amountOfMoney <= 1000) {
       return true;
