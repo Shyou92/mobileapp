@@ -1,10 +1,12 @@
 import { Component } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
-import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router, ActivatedRoute } from '@angular/router';
 import { FormControl, Validators } from '@angular/forms';
-import { Services } from 'app/services';
-import { Card } from 'app/typings';
+
+import { MatSnackBar } from '@angular/material/snack-bar';
+
+import { Services } from '../../services';
+import { Card } from '../../typings';
 import { cards } from '../../mockData';
 import { SnackbarComponent } from '../snackBar/snackBar.component';
 

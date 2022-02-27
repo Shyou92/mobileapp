@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { Card } from 'app/typings';
+import { Component } from '@angular/core';
+import { Card } from '../../typings';
 import { cards } from '../../mockData';
 
 @Component({

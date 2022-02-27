@@ -14,6 +14,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
+import { MATERIAL_SANITY_CHECKS } from '@angular/material/core';
 
 import { MainComponent } from './components/main/main.component';
 import { OperatorComponent } from './components/operator/operator.component';
@@ -47,7 +48,12 @@ export const routes: Routes = [
     RouterModule.forRoot(routes),
   ],
   exports: [RouterModule],
-  providers: [],
+  providers: [
+    {
+      provide: MATERIAL_SANITY_CHECKS,
+      useValue: false,
+    },
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
