@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Card, FormData, MockFillType } from 'app/typings';
+import { Card, FormData, MockFillType } from '../typings';
 
 @Injectable({
   providedIn: 'root',
