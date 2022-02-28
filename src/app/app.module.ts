@@ -19,10 +19,15 @@ import { MATERIAL_SANITY_CHECKS } from '@angular/material/core';
 import { MainComponent } from './components/main/main.component';
 import { OperatorComponent } from './components/operator/operator.component';
 import { SnackbarComponent } from './components/snackBar/snackBar.component';
+import { NotFoundComponent } from './components/not-found/not-found.component';
 
 export const routes: Routes = [
   { path: '', component: MainComponent, pathMatch: 'full' },
-  { path: 'card/:id', component: OperatorComponent },
+  {
+    path: 'card/:id',
+    component: OperatorComponent,
+  },
+  { path: '**', component: NotFoundComponent },
 ];
 
 @NgModule({
@@ -31,6 +36,7 @@ export const routes: Routes = [
     MainComponent,
     OperatorComponent,
     SnackbarComponent,
+    NotFoundComponent,
   ],
   imports: [
     BrowserModule,

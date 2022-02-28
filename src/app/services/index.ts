@@ -1,11 +1,14 @@
 import { Injectable } from '@angular/core';
 import { Card, FormData, MockFillType } from '../typings';
+import phoneValidate from 'app/components/validation/phoneValidate';
+import amountofMoneyValidation from 'app/components/validation/amountOfMoneyValidation';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Injectable({
   providedIn: 'root',
 })
 export class Services {
-  constructor() {}
+  constructor(public snackBar: MatSnackBar) {}
 
   public sendFormData(
     data: FormData,
@@ -14,7 +17,7 @@ export class Services {
   ): Promise<MockFillType> {
     return new Promise((resolve, reject) => {
       setTimeout(() => {
-        if (this.phoneValidate(data, card) && this.amountValidate(data)) {
+        if (phoneValidate(data, card) && amountofMoneyValidation(data)) {
           isValid = true;
           resolve({
             status: 200,
@@ -31,27 +34,5 @@ export class Services {
         }
       }, 2000);
     });
-  }
-
-  public phoneValidate(data: any, card: Card) {
-    const { codes } = card;
-
-    const { phoneNumber } = data;
-    const phoneNumberSubstr = phoneNumber.slice(1, 5);
-    return codes.find((item: any) => {
-      if (phoneNumberSubstr.includes(item.toString())) {
-        return true;
-      } else {
-        return false;
-      }
-    });
-  }
-
-  public amountValidate(data: any) {
-    const { amountOfMoney } = data;
-    if (amountOfMoney >= 1 && amountOfMoney <= 1000) {
-      return true;
-    }
-    return false;
   }
 }

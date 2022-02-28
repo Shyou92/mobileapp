@@ -36,3 +36,9 @@ export const cards = [
     mobrows: 3,
   },
 ];
+
+export const error = {
+  img: '/assets/images/notFound.png',
+  name: 'Not Found',
+  message: 'Source is not found',
+};

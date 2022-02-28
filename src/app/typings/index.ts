@@ -15,3 +15,9 @@ export type MockFillType = {
   success: boolean;
   data: { sent: FormData; message: string };
 };
+
+export type Error = {
+  img: string;
+  name: string;
+  message: string;
+};

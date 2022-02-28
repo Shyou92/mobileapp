@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
 import { Router, ActivatedRoute } from '@angular/router';
 import { FormControl, Validators } from '@angular/forms';
@@ -6,8 +6,8 @@ import { FormControl, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
 
 import { Services } from '../../services';
-import { Card } from '../../typings';
-import { cards } from '../../mockData';
+import { Card, Error } from '../../typings';
+import { cards, error } from '../../mockData';
 import { SnackbarComponent } from '../snackBar/snackBar.component';
 
 export class FormItem {
@@ -22,9 +22,10 @@ export class FormItem {
   templateUrl: './operator.component.html',
   styleUrls: ['./operator.component.scss'],
 })
-export class OperatorComponent {
+export class OperatorComponent implements OnInit {
   cards: Card[];
   card: Card;
+  error: Error;
 
   checkoutForm = this.formBuilder.group({
     phoneNumber: '',
@@ -34,6 +35,14 @@ export class OperatorComponent {
   phoneNumber = new FormControl('', [Validators.required]);
 
   public isValid: Boolean;
+
+  ngOnInit(): void {
+    console.log(error.img);
+
+    if (Number(this.route.snapshot.paramMap.get('id')) > cards.length) {
+      this.router.navigate(['/notfound']);
+    }
+  }
 
   constructor(
     private route: ActivatedRoute,
@@ -46,10 +55,17 @@ export class OperatorComponent {
     const id = Number(this.route.snapshot.paramMap.get('id'));
     this.card = this.getSingleCardForm(id);
     this.isValid = false;
+    this.error = error;
   }
 
   private getSingleCardForm(id: number) {
-    const card = this.cards.filter((item) => item.id === id);
+    const card = this.cards.filter((item) => {
+      if (item.id !== id) {
+        console.log(false);
+        return false;
+      }
+      return item.id === id;
+    });
     return card[0];
   }
 
@@ -62,6 +78,8 @@ export class OperatorComponent {
 
   submitForm() {
     const data = this.checkoutForm.value;
+    console.log(this.route.snapshot.paramMap.get('id'));
+
     this.services
       .sendFormData(data, this.card, this.isValid)
       .then((res) => {

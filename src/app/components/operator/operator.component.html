@@ -1,5 +1,9 @@
 <section class="formSection">
-  <img src="{{ card.img }}" alt="logo" class="formSection__logo" />
+  <img
+    [src]="card.img === undefined ? error.img : card.img"
+    alt="logo"
+    class="formSection__logo"
+  />
   <form action="" [formGroup]="checkoutForm" class="form">
     <section class="form__item">
       <mat-form-field appearance="fill" class="form__input">
