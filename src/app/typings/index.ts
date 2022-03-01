@@ -6,7 +6,7 @@ export type Card = {
 };
 
 export type FormData = {
-  phoneNumber: number;
+  phone: number;
   amountOfMoney: number;
 };
 

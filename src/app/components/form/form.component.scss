@@ -1,4 +1,4 @@
-.formSection {
+.form {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -6,15 +6,13 @@
   margin: 5% auto 0;
 
   &__logo {
-    width: 50%;
-    height: 50%;
     box-sizing: border-box;
   }
-}
 
-.form {
-  padding: 3%;
-  width: 290px;
+  &__section {
+    padding: 3%;
+    width: 290px;
+  }
 
   &__item {
     width: 100%;
@@ -22,6 +20,9 @@
 
   &__input {
     width: 100%;
+    &:nth-last-of-type(1) {
+      margin-bottom: 2rem;
+    }
   }
 }
 
