@@ -17,7 +17,6 @@ import { MatButtonModule } from '@angular/material/button';
 import { MATERIAL_SANITY_CHECKS } from '@angular/material/core';
 
 import { MainComponent } from './components/main/main.component';
-// import { OperatorComponent } from './components/operator/operator.component';
 import { SnackbarComponent } from './components/snackBar/snackBar.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
 import { FormComponent } from './components/form/form.component';
@@ -36,7 +35,6 @@ export const routes: Routes = [
   declarations: [
     AppComponent,
     MainComponent,
-    // OperatorComponent,
     SnackbarComponent,
     NotFoundComponent,
     FormComponent,
@@ -54,6 +52,7 @@ export const routes: Routes = [
     MatInputModule,
     MatFormFieldModule,
     FormsModule,
+    MatToolbarModule,
     ReactiveFormsModule,
     RouterModule.forRoot(routes),
   ],
