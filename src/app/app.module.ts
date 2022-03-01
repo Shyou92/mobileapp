@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { Routes, RouterModule } from '@angular/router';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -20,6 +20,8 @@ import { MainComponent } from './components/main/main.component';
 import { OperatorComponent } from './components/operator/operator.component';
 import { SnackbarComponent } from './components/snackBar/snackBar.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { ProfileEditorComponent } from './profile-editor/profile-editor.component';
 
 export const routes: Routes = [
   { path: '', component: MainComponent, pathMatch: 'full' },
@@ -37,6 +39,7 @@ export const routes: Routes = [
     OperatorComponent,
     SnackbarComponent,
     NotFoundComponent,
+    ProfileEditorComponent,
   ],
   imports: [
     BrowserModule,
@@ -48,6 +51,7 @@ export const routes: Routes = [
     MatIconModule,
     MatButtonModule,
     MatSnackBarModule,
+    MatFormFieldModule,
     MatInputModule,
     FormsModule,
     ReactiveFormsModule,

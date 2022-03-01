@@ -1,0 +1,33 @@
+<form [formGroup]="profileForm" (ngSubmit)="onSubmit()">
+  <label for="firstName">First Name: </label>
+  <input
+    id="firstName"
+    type="text"
+    formControlName="firstName"
+    formControlName="firstName"
+  />
+  <mat-error *ngIf="!profileForm.get('firstName')?.hasError('required')">
+    <span>Invalid phone</span>
+  </mat-error>
+  <!-- <div *ngIf="profileForm.firstName.invalid && (firstName.dirty || firstName.touched)"
+    class="alert alert-danger">
+    <div *ngIf="firstName.errors?.['required']">
+      Name is required.
+    </div>
+    <div *ngIf="firstName.errors?.['minlength']">
+      Name must be at least 4 characters long.
+    </div>
+    <div *ngIf="firstName.errors?.['forbiddenName']">
+      Name cannot be Bob.
+    </div>
+  </div> -->
+
+  <label for="last-name">Last Name: </label>
+  <input id="last-name" type="text" formControlName="lastName" />
+
+  <p>Form Status: {{ profileForm.status }}</p>
+
+  <p>Complete the form to enable button.</p>
+  <button type="submit" [disabled]="!profileForm.valid">Submit</button>
+  <!-- <button type="button" (click)="updateProfile()">Update Profile</button> -->
+</form>

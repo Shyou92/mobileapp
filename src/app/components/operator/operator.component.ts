@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder } from '@angular/forms';
+import { FormBuilder, FormGroup, FormGroupDirective } from '@angular/forms';
 import { Router, ActivatedRoute } from '@angular/router';
 import { FormControl, Validators } from '@angular/forms';
 
@@ -23,6 +23,7 @@ export class FormItem {
   styleUrls: ['./operator.component.scss'],
 })
 export class OperatorComponent implements OnInit {
+  // fillForm: FormGroup;
   cards: Card[];
   card: Card;
   error: Error;
@@ -47,13 +48,22 @@ export class OperatorComponent implements OnInit {
     private formBuilder: FormBuilder,
     private formServices: FormServices,
     private router: Router,
-    public snackBar: MatSnackBar
+    public snackBar: MatSnackBar,
+    public fillForm: FormGroup
   ) {
     this.cards = cards;
     const id = Number(this.route.snapshot.paramMap.get('id'));
     this.card = this.getSingleCardForm(id);
     this.isValid = false;
     this.error = error;
+    this.createForm();
+  }
+
+  private createForm() {
+    this.fillForm = this.formBuilder.group({
+      phoneNumber: [''],
+      amountOfMoney: [''],
+    });
   }
 
   private getSingleCardForm(id: number) {
@@ -71,6 +81,8 @@ export class OperatorComponent implements OnInit {
   }
 
   submitForm() {
+    console.log(this.fillForm);
+
     const data = this.checkoutForm.value;
     this.formServices
       .sendFormData(data, this.card, this.isValid)
