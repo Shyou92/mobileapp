@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Card, FormData, MockFillType } from '../typings';
-import phoneValidate from 'app/components/validation/phoneValidate';
-import amountofMoneyValidation from 'app/components/validation/amountOfMoneyValidation';
+import phoneValidate from '../validation/phoneValidate';
+import amountofMoneyValidation from '../validation/amountOfMoneyValidation';
 import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Injectable({
