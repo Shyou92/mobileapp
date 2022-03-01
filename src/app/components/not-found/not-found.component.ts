@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+
 import { Error } from 'app/typings';
 import { error } from '../../mockData/';
 

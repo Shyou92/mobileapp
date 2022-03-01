@@ -5,7 +5,7 @@ import { FormControl, Validators } from '@angular/forms';
 
 import { MatSnackBar } from '@angular/material/snack-bar';
 
-import { Services } from '../../services';
+import { FormServices } from '../../services';
 import { Card, Error } from '../../typings';
 import { cards, error } from '../../mockData';
 import { SnackbarComponent } from '../snackBar/snackBar.component';
@@ -45,7 +45,7 @@ export class OperatorComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private formBuilder: FormBuilder,
-    private services: Services,
+    private formServices: FormServices,
     private router: Router,
     public snackBar: MatSnackBar
   ) {
@@ -72,7 +72,7 @@ export class OperatorComponent implements OnInit {
 
   submitForm() {
     const data = this.checkoutForm.value;
-    this.services
+    this.formServices
       .sendFormData(data, this.card, this.isValid)
       .then((res) => {
         if (res.status === 200) {
