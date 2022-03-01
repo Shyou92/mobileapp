@@ -37,8 +37,6 @@ export class OperatorComponent implements OnInit {
   public isValid: Boolean;
 
   ngOnInit(): void {
-    console.log(error.img);
-
     if (Number(this.route.snapshot.paramMap.get('id')) > cards.length) {
       this.router.navigate(['/notfound']);
     }
@@ -60,10 +58,6 @@ export class OperatorComponent implements OnInit {
 
   private getSingleCardForm(id: number) {
     const card = this.cards.filter((item) => {
-      if (item.id !== id) {
-        console.log(false);
-        return false;
-      }
       return item.id === id;
     });
     return card[0];
@@ -78,8 +72,6 @@ export class OperatorComponent implements OnInit {
 
   submitForm() {
     const data = this.checkoutForm.value;
-    console.log(this.route.snapshot.paramMap.get('id'));
-
     this.services
       .sendFormData(data, this.card, this.isValid)
       .then((res) => {

@@ -1,1 +1,14 @@
-<p>not-found works!</p>
+<section class="error">
+  <img [src]="error.img" alt="error logo" class="error__image" />
+
+  <h2 class="error__message">{{ error.message }}</h2>
+
+  <button
+    mat-raised-button
+    color="primary"
+    class="error__redirect"
+    (click)="goToMainPage()"
+  >
+    Go to Main Page
+  </button>
+</section>

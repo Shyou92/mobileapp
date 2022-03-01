@@ -1,9 +1,10 @@
 <section class="formSection">
-  <img
-    [src]="card.img === undefined ? error.img : card.img"
-    alt="logo"
-    class="formSection__logo"
-  />
+  <div class="" *ngIf="card && card?.img; else errorImg">
+    <img [src]="card.img" alt="logo" class="formSection__logo" />
+  </div>
+  <ng-template #errorImg>
+    <img [src]="error.img" alt="logo" class="formSection__logo" />
+  </ng-template>
   <form action="" [formGroup]="checkoutForm" class="form">
     <section class="form__item">
       <mat-form-field appearance="fill" class="form__input">

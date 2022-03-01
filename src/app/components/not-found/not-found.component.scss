@@ -1,0 +1,10 @@
+.error {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 5%;
+
+  &__image {
+    margin-bottom: 1rem;
+  }
+}
