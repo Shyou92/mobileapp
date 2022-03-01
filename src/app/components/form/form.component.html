@@ -16,10 +16,18 @@
         formControlName="phone"
       />
       <mat-icon matSuffix>mode_edit</mat-icon>
+      <mat-error *ngIf="form.get('phone')?.hasError('required')">
+        <span>Phone is required</span>
+      </mat-error>
+      <mat-error
+        *ngIf="
+          !form.get('phone')?.hasError('required') &&
+          !form.get('phone')?.hasError('phoneValidate')
+        "
+      >
+        <span>Invalid operator code</span>
+      </mat-error>
     </mat-form-field>
-    <!-- <mat-error *ngIf=".invalid">{{
-      getErrorMessage()
-    }}</mat-error> -->
     <mat-form-field appearance="fill" class="form__input">
       <mat-label for="amount">Sum </mat-label>
       <input
@@ -29,13 +37,34 @@
         formControlName="amountOfMoney"
       />
       <mat-hint>Min 1₽ Max 1000₽</mat-hint>
-      <!-- <mat-error *ngIf="phoneNumber.invalid">{{
-        getErrorMessage()
-      }}</mat-error> -->
+      <mat-error *ngIf="form.get('amountOfMoney')?.hasError('required')">
+        <span>Amount is required</span>
+      </mat-error>
+      <mat-error
+        *ngIf="
+          !form.get('amountOfMoney')?.hasError('required') &&
+          form.get('amountOfMoney')?.hasError('noMore')
+        "
+      >
+        <span>Should be no more than 1000₽</span>
+      </mat-error>
+      <mat-error
+        *ngIf="
+          !form.get('amountOfMoney')?.hasError('required') &&
+          form.get('amountOfMoney')?.hasError('noLess')
+        "
+      >
+        <span>Should be not less than 1₽</span>
+      </mat-error>
     </mat-form-field>
 
-    <button mat-raised-button color="primary" type="submit">Fill</button>
+    <button
+      mat-raised-button
+      color="primary"
+      [disabled]="!form.valid"
+      type="submit"
+    >
+      Fill
+    </button>
   </form>
-
-  <p>Form Status: {{ form.status }}</p>
 </section>
