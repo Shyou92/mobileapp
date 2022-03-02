@@ -51,11 +51,10 @@ export class FormComponent implements OnInit {
         '',
         [
           Validators.required,
-
           Validators.pattern(
             /^(\+7|7|8)?[\s\-]?\(?[489][0-9]{2}\)?[\s\-]?[0-9]{3}[\s\-]?[0-9]{2}[\s\-]?[0-9]{2}$/gm
           ),
-          phoneValidate(this.card.codes),
+          phoneValidate(this.card?.codes),
         ],
       ],
       amountOfMoney: ['', [Validators.required, noLess(1), noMore(1000)]],
