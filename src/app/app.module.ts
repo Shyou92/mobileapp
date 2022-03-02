@@ -26,6 +26,7 @@ import { CardComponent } from './components/card/card.component';
 import { TitleComponent } from './shared/UI/title/title.component';
 import { ImageComponent } from './shared/UI/image/image.component';
 import { CardTextComponent } from './shared/UI/card-text/card-text.component';
+import { ButtonComponent } from './shared/UI/button/button.component';
 
 export const routes: Routes = [
   { path: '', component: MainComponent, pathMatch: 'full' },
@@ -49,6 +50,7 @@ export const routes: Routes = [
     TitleComponent,
     ImageComponent,
     CardTextComponent,
+    ButtonComponent,
   ],
   imports: [
     BrowserModule,

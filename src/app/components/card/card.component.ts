@@ -9,4 +9,5 @@ export class CardComponent {
   @Input() headerTitle: string | undefined;
   @Input() image: string | undefined;
   @Input() cardText: string | undefined;
+  @Input() buttonName: string | undefined;
 }
