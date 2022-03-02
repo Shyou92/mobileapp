@@ -1,13 +1,12 @@
 .card {
   width: 280px;
 
-  &__image {
-    height: 200px;
-    object-fit: cover;
-  }
-
   &__buttonWrapper {
     display: flex;
     justify-content: center;
   }
+}
+
+.mat-card-image:first-child {
+  margin-top: 0;
 }

@@ -24,6 +24,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { AboutComponent } from './components/about/about.component';
 import { CardComponent } from './components/card/card.component';
 import { TitleComponent } from './shared/UI/title/title.component';
+import { ImageComponent } from './shared/UI/image/image.component';
 
 export const routes: Routes = [
   { path: '', component: MainComponent, pathMatch: 'full' },
@@ -45,6 +46,7 @@ export const routes: Routes = [
     AboutComponent,
     CardComponent,
     TitleComponent,
+    ImageComponent,
   ],
   imports: [
     BrowserModule,

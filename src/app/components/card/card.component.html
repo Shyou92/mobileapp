@@ -1,11 +1,6 @@
 <mat-card class="card" class="card">
-  <app-title headerTitle="THE AWESOME TITLE"></app-title>
-  <img
-    mat-card-image
-    class="card__image"
-    src="../../../assets/images/cat.jpg"
-    alt="cat"
-  />
+  <app-title [headerTitle]="headerTitle"></app-title>
+  <app-image [image]="image"></app-image>
   <mat-card-content>
     <p class="card__text">
       Lorem ipsum dolor sit amet consectetur, adipisicing elit. Fuga voluptate
