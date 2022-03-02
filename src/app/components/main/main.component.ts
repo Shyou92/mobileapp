@@ -17,4 +17,8 @@ export class MainComponent {
   public goToAboutUs(): void {
     this.router.navigate(['about']);
   }
+
+  public goToLazyAboutUs(): void {
+    this.router.navigate(['lazy/about']);
+  }
 }
