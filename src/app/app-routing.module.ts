@@ -5,7 +5,7 @@ const routes: Routes = [
   {
     path: 'lazy',
     loadChildren: () =>
-      import('./lazy/lazy.module').then((mod) => mod.LazyModule),
+      import('./modules/lazy/lazy.module').then((mod) => mod.LazyModule),
   },
 ];
 
