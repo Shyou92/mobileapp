@@ -65,7 +65,6 @@ export const routes: Routes = [
     MatInputModule,
     MatFormFieldModule,
     FormsModule,
-    MatToolbarModule,
     ReactiveFormsModule,
     RouterModule.forRoot(routes),
   ],
