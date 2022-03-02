@@ -1,0 +1,26 @@
+<section class="about">
+  <h2 class="about__header">About us</h2>
+  <p class="about__text">
+    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Impedit animi
+    magnam vel autem porro incidunt at accusantium quo laboriosam esse
+    repellendus tempora sapiente aut, minima praesentium quisquam sit laudantium
+    voluptatum eligendi eveniet velit perferendis quod? Deserunt nihil
+    aspernatur laboriosam reiciendis. Laborum inventore veniam error odio
+    pariatur illum cum asperiores distinctio cupiditate vitae, omnis a iusto
+    ullam amet mollitia. Veritatis, quia temporibus asperiores blanditiis
+    explicabo quo harum culpa inventore accusamus recusandae repellendus
+    doloremque totam vero, aliquid quidem, quam provident optio iure sequi quae
+    facere quod magni. Illum sapiente voluptate vitae temporibus iste numquam
+    saepe at eos voluptas ducimus quos deserunt nihil id, rem esse iusto
+    perspiciatis molestias eveniet nostrum doloribus quod adipisci iure? Atque
+    dolore quas libero itaque, non cum reiciendis!
+  </p>
+
+  <button mat-raised-button color="primary" (click)="goToMainPage()">
+    Go to Main Page
+  </button>
+
+  <section class="about__cards" *ngFor="let card of cards">
+    <app-card></app-card>
+  </section>
+</section>

@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 import { Card } from '../../typings';
 import { cards } from '../../mockData';
@@ -10,4 +11,10 @@ import { cards } from '../../mockData';
 })
 export class MainComponent {
   cards: Card[] = cards;
+
+  constructor(private router: Router) {}
+
+  public goToAboutUs(): void {
+    this.router.navigate(['about']);
+  }
 }

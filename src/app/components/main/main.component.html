@@ -1,8 +1,18 @@
 <section class="list">
-  <a class="link" *ngFor="let card of cards" routerLink="/card/{{ card.id }}">
-    <mat-card class="card">
-      <img mat-card-image class="image" src="{{ card.img }}" alt="logo" />
-      <mat-icon *ngIf="!card.img">phone</mat-icon>
-    </mat-card>
-  </a>
+  <div class="list__container">
+    <a
+      class="list__link"
+      *ngFor="let card of cards"
+      routerLink="/card/{{ card.id }}"
+    >
+      <mat-card class="card">
+        <img mat-card-image class="image" src="{{ card.img }}" alt="logo" />
+        <mat-icon *ngIf="!card.img">phone</mat-icon>
+      </mat-card>
+    </a>
+  </div>
+
+  <button mat-raised-button color="accent" (click)="goToAboutUs()">
+    About us
+  </button>
 </section>

@@ -21,9 +21,13 @@ import { SnackbarComponent } from './components/snackBar/snackBar.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
 import { FormComponent } from './components/form/form.component';
 import { MatFormFieldModule } from '@angular/material/form-field';
+import { AboutComponent } from './components/about/about.component';
+import { CardComponent } from './components/card/card.component';
+import { TitleComponent } from './shared/UI/title/title.component';
 
 export const routes: Routes = [
   { path: '', component: MainComponent, pathMatch: 'full' },
+  { path: 'about', component: AboutComponent, pathMatch: 'full' },
   {
     path: 'card/:id',
     component: FormComponent,
@@ -38,6 +42,9 @@ export const routes: Routes = [
     SnackbarComponent,
     NotFoundComponent,
     FormComponent,
+    AboutComponent,
+    CardComponent,
+    TitleComponent,
   ],
   imports: [
     BrowserModule,

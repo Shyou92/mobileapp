@@ -1,8 +1,20 @@
 .list {
   display: flex;
+  flex-direction: column;
+  align-items: center;
   justify-content: center;
   gap: 10px;
   margin: 50px auto;
+
+  &__container {
+    display: flex;
+    width: 52%;
+    justify-content: space-between;
+  }
+
+  &__link {
+    height: 50%;
+  }
 
   @media screen and (max-width: 425px) {
     flex-direction: column;
@@ -27,8 +39,4 @@
   &:hover {
     box-shadow: 2px solid black;
   }
-}
-
-.link {
-  height: 50%;
 }
