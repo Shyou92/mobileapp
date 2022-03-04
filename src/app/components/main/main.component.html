@@ -12,6 +12,8 @@
     </a>
   </div>
 
+  <p *ngFor="let text of allText$ | async">{{ text }}</p>
+
   <button mat-raised-button color="accent" (click)="goToAboutUs()">
     About us
   </button>
