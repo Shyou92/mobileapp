@@ -6,8 +6,8 @@ import { cards } from '../../mockData';
 import { Store } from '@ngrx/store';
 import { loadText } from 'app/state/text/text.actions';
 import { selectAllTexts, selectText } from 'app/state/text/text.selectors';
-import { selectAllCards } from 'app/state/cards/cards.selector';
-import { loadCard } from 'app/state/cards/cards.actions';
+import { selectAllCards } from '../../state/cards/cards.selector';
+import { loadCard } from '../../state/cards/cards.actions';
 @Injectable()
 @Component({
   selector: 'app-main',

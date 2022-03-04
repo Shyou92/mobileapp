@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Store } from '@ngrx/store';
-import { cards } from 'app/mockData';
-import { selectAllCards } from 'app/state/cards/cards.selector';
-import { selectAllTexts } from 'app/state/text/text.selectors';
-import { Card } from 'app/typings';
+import { cards } from '../../mockData';
+import { selectAllCards } from '../../state/cards/cards.selector';
+import { selectAllTexts } from '../../state/text/text.selectors';
+import { Card } from '../../typings';
 
 @Component({
   selector: 'app-about',
