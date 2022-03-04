@@ -1,9 +1,9 @@
-export type Card = {
+export interface Card {
   img: string;
   id: number;
   name: string;
   codes: number[];
-};
+}
 
 export type FormData = {
   phone: number;

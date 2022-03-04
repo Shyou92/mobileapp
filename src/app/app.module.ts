@@ -27,6 +27,14 @@ import { TitleComponent } from './shared/UI/title/title.component';
 import { ImageComponent } from './shared/UI/image/image.component';
 import { CardTextComponent } from './shared/UI/card-text/card-text.component';
 import { ButtonComponent } from './shared/UI/button/button.component';
+import { Store, StoreModule } from '@ngrx/store';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { environment } from '../environments/environment';
+import { EffectsModule } from '@ngrx/effects';
+import { IonicStorageModule } from '@ionic/storage-angular';
+import { Observable } from 'rxjs';
+import { textReducer } from './state/text/text.reducer';
+import { TextEffects } from './state/text/text.effects';
 
 export const routes: Routes = [
   { path: '', component: MainComponent, pathMatch: 'full' },
@@ -66,7 +74,14 @@ export const routes: Routes = [
     MatFormFieldModule,
     FormsModule,
     ReactiveFormsModule,
+    IonicStorageModule.forRoot(),
     RouterModule.forRoot(routes),
+    StoreModule.forRoot({ texts: textReducer }),
+    StoreDevtoolsModule.instrument({
+      maxAge: 25,
+      logOnly: environment.production,
+    }),
+    EffectsModule.forRoot([TextEffects]),
   ],
   exports: [RouterModule],
   providers: [

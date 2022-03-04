@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { Store } from '@ngrx/store';
 import { cards } from 'app/mockData';
+import { selectAllTexts } from 'app/state/text/text.selectors';
 import { Card } from 'app/typings';
 
 @Component({
@@ -10,8 +12,8 @@ import { Card } from 'app/typings';
 })
 export class AboutComponent {
   cards: Card[] = cards;
-
-  constructor(private router: Router) {}
+  public allText$ = this.store.select(selectAllTexts);
+  constructor(private router: Router, private store: Store) {}
 
   public goToMainPage(): void {
     this.router.navigate(['']);
