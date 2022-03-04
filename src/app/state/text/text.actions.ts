@@ -1,10 +1,4 @@
 import { createAction, props } from '@ngrx/store';
-import { Text } from './text.reducer';
-
-export const addText = createAction(
-  '[Text] Add Text',
-  props<{ text: string }>()
-);
 
 export const loadText = createAction('[Text] Load Text');
 

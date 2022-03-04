@@ -3,12 +3,7 @@ import { Actions, createEffect, ofType } from '@ngrx/effects';
 import { Store } from '@ngrx/store';
 import { TextService } from 'app/components/main/main.service';
 import { catchError, from, map, of, switchMap, withLatestFrom } from 'rxjs';
-import {
-  addText,
-  loadText,
-  loadTextFailure,
-  loadTextSuccess,
-} from './text.actions';
+import { loadText, loadTextFailure, loadTextSuccess } from './text.actions';
 import { initialState } from './text.reducer';
 import { selectAllTexts } from './text.selectors';
 

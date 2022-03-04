@@ -1,10 +1,5 @@
 import { createReducer, on } from '@ngrx/store';
-import {
-  addText,
-  loadText,
-  loadTextFailure,
-  loadTextSuccess,
-} from './text.actions';
+import { loadText, loadTextFailure, loadTextSuccess } from './text.actions';
 
 export interface Text {
   text: string;
