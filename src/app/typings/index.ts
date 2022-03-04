@@ -2,7 +2,8 @@ export interface Card {
   img: string;
   id: number;
   name: string;
-  codes: number[];
+  codes?: number[];
+  text?: string;
 }
 
 export type FormData = {

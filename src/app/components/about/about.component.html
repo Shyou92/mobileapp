@@ -7,18 +7,13 @@
     Go to Main Page
   </button>
 
-  <app-card
-    headerTitle="the awesome title"
-    image="../../../assets/images/cat.jpg"
-    cardText="Lorem ipsum dolor sit amet consectetur, adipisicing elit. Fuga voluptate
-    voluptatem unde?"
-    buttonName="Action 1"
-    buttonAction="buttonAction"
-  ></app-card>
-  <app-card
-    headerTitle="another awesome title"
-    image="../../../assets/images/anotherCat.jpg"
-    cardText="Another super awesome text"
-    buttonName="Action 2"
-  ></app-card>
+  <section *ngFor="let cards of allCards$ | async">
+    <app-card
+      headerTitle="{{ cards.name }}"
+      image="{{ cards.img }}"
+      cardText="{{ cards.text }}"
+      buttonName="Action 1"
+      buttonAction="buttonAction"
+    ></app-card>
+  </section>
 </section>
