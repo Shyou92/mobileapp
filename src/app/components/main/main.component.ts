@@ -6,6 +6,8 @@ import { cards } from '../../mockData';
 import { Store } from '@ngrx/store';
 import { loadText } from 'app/state/text/text.actions';
 import { selectAllTexts, selectText } from 'app/state/text/text.selectors';
+import { selectAllCards } from 'app/state/cards/cards.selector';
+import { loadCard } from 'app/state/cards/cards.actions';
 @Injectable()
 @Component({
   selector: 'app-main',
@@ -14,12 +16,14 @@ import { selectAllTexts, selectText } from 'app/state/text/text.selectors';
 })
 export class MainComponent implements OnInit {
   public allText$ = this.store.select(selectAllTexts);
+  public allCards$ = this.store.select(selectAllCards);
 
   cards: Card[] = cards;
   constructor(private router: Router, private store: Store) {}
 
   ngOnInit(): void {
     this.store.dispatch(loadText());
+    this.store.dispatch(loadCard());
   }
 
   public goToAboutUs(): void {

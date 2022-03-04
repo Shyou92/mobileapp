@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Storage } from '@ionic/storage-angular';
-import { initialState } from 'app/state/cards/cards.reducer';
+import { initialCardsState } from 'app/state/cards/cards.reducer';
+import { Card } from 'app/typings';
 
 @Injectable({ providedIn: 'root' })
 export class CardService {
@@ -8,14 +9,14 @@ export class CardService {
 
   constructor(private storage: Storage) {}
 
-  async getCards(): Promise<string[]> {
+  async getCards(): Promise<Card[]> {
     if (!this.storageInitialised) await this.storage.create();
-    return (await this.storage.get('cards')) || initialState.cards;
+    return (await this.storage.get('cards')) || initialCardsState.cards;
   }
 
-  async saveCards(texts: string[]) {
+  async saveCards(cards: Card[]) {
     if (!this.storageInitialised) await this.storage.create();
 
-    return this.storage.set('cards', texts);
+    return this.storage.set('cards', cards);
   }
 }

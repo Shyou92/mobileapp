@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
 import { Store } from '@ngrx/store';
 import { CardService } from 'app/components/card/cards.service';
+
 import { catchError, from, map, of, switchMap, withLatestFrom } from 'rxjs';
 import { loadCard, loadCardFailure, loadCardSuccess } from './cards.actions';
 import { selectAllCards } from './cards.selector';
@@ -21,12 +22,7 @@ export class CardEffects {
         from(this.cardService.getCards()).pipe(
           map((cards) =>
             loadCardSuccess({
-              cards: {
-                img: cards.img,
-                id: cards.id,
-                name: cards.name,
-                text: cards.text,
-              },
+              cards: cards,
             })
           ),
           catchError((error) => of(loadCardFailure({ error })))
@@ -35,7 +31,7 @@ export class CardEffects {
     )
   );
 
-  saveTexts$ = createEffect(
+  saveCard$ = createEffect(
     () =>
       this.actions$.pipe(
         ofType(loadCard),

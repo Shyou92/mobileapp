@@ -14,6 +14,16 @@
 
   <p *ngFor="let text of allText$ | async">{{ text }}</p>
 
+  <section *ngFor="let cards of allCards$ | async">
+    <app-card
+      headerTitle="{{ cards.name }}"
+      image="{{ cards.img }}"
+      cardText="{{ cards.text }}"
+      buttonName="Action 1"
+      buttonAction="buttonAction"
+    ></app-card>
+  </section>
+
   <button mat-raised-button color="accent" (click)="goToAboutUs()">
     About us
   </button>

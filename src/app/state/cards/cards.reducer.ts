@@ -8,16 +8,16 @@ export interface CardState {
   status: 'pending' | 'loading' | 'error' | 'success';
 }
 
-export const initialState: CardState = {
+export const initialCardsState: CardState = {
   cards: [
     {
-      img: '',
+      img: '../../../assets/images/cat.jpg',
       id: 1,
       text: 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Fuga voluptate voluptatem unde?',
       name: 'The Awesome Title',
     },
     {
-      img: '',
+      img: '../../../assets/images/anotherCat.jpg',
       id: 2,
       text: 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Fuga voluptate voluptatem unde?',
       name: 'Another Awesome Title',
@@ -27,8 +27,8 @@ export const initialState: CardState = {
   status: 'pending',
 };
 
-export const textReducer = createReducer(
-  initialState,
+export const cardReducer = createReducer(
+  initialCardsState,
   on(loadCard, (state) => ({ ...state, status: 'loading' })),
   on(loadCardSuccess, (state) => ({
     ...state,

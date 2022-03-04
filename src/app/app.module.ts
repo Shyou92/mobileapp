@@ -35,6 +35,8 @@ import { IonicStorageModule } from '@ionic/storage-angular';
 import { Observable } from 'rxjs';
 import { textReducer } from './state/text/text.reducer';
 import { TextEffects } from './state/text/text.effects';
+import { CardEffects } from './state/cards/cards.effects';
+import { cardReducer } from './state/cards/cards.reducer';
 
 export const routes: Routes = [
   { path: '', component: MainComponent, pathMatch: 'full' },
@@ -76,12 +78,12 @@ export const routes: Routes = [
     ReactiveFormsModule,
     IonicStorageModule.forRoot(),
     RouterModule.forRoot(routes),
-    StoreModule.forRoot({ texts: textReducer }),
+    StoreModule.forRoot({ texts: textReducer, cards: cardReducer }),
     StoreDevtoolsModule.instrument({
       maxAge: 25,
       logOnly: environment.production,
     }),
-    EffectsModule.forRoot([TextEffects]),
+    EffectsModule.forRoot([TextEffects, CardEffects]),
   ],
   exports: [RouterModule],
   providers: [
