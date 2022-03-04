@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
 import { Store } from '@ngrx/store';
-import { TextService } from 'app/components/main/main.service';
+import { TextService } from '../../components/main/main.service';
 import { catchError, from, map, of, switchMap, withLatestFrom } from 'rxjs';
 import {
   addText,
